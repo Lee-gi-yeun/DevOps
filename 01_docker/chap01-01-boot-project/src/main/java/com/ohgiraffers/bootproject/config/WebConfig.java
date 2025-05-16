@@ -10,7 +10,10 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOrigins("http://localhost:5173")
+//                .allowedOrigins("http://localhost:5173")
+                // NodePort에 설정 된 30000 번 포트에서 오는 연결에 대한
+                // CORS 설정 해제
+                .allowedOrigins("http://localhost:30000")   // kubernetes 포트 번호
 //                .allowedOrigins("http://localhost:8011")
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
     }

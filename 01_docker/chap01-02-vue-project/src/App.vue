@@ -5,7 +5,9 @@ const num2 = ref(0);
 const result = ref(0);
 
 const sendPlus = async () => {
-  const response = await fetch(`http://localhost:8080/plus?num1=${num1.value}&num2=${num2.value}`);
+//  const response = await fetch(`http://localhost:8080/plus?num1=${num1.value}&num2=${num2.value}`);
+  // NodePort에 설정 된 30001 번 포트로 백엔드 요청을 수행
+  const response = await fetch(`http://localhost:30001/plus?num1=${num1.value}&num2=${num2.value}`);
   // const response = await fetch(`http://localhost:8055/plus?num1=${num1.value}&num2=${num2.value}`);
   const data = await response.json();
   console.log(`data : `, data);
